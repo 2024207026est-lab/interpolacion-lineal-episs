@@ -8,7 +8,7 @@ Abre `index.html` en un navegador. Pulsa **Cargar ejemplo** para obtener y = 150
 
 ## GitHub
 
-Crea un repositorio llamado `interpolacion-lineal-episs` y sube los archivos de esta carpeta a la raíz del repositorio (no subas el ZIP).
+Crea un repositorio llamado `interpolacion-lineal-episs` y sube los archivos de esta carpeta a la raíz del repositorio.
 
 ## Netlify
 
