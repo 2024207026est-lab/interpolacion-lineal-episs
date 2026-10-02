@@ -12,7 +12,17 @@ Calculadora estadística educativa en HTML, CSS y JavaScript, sin dependencias e
 - Procedimiento, interpretación, región de rechazo, gráficos de intervalos y opción de imprimir/guardar PDF.
 - Interpolación original en `interpolacion.html`.
 
-No interpreta automáticamente enunciados de texto: el usuario selecciona el método y captura los datos. No incluye pruebas de dos muestras, ANOVA, chi-cuadrado, binomial exacta ni cálculo de potencia.
+No interpreta automáticamente enunciados de texto: el usuario selecciona el método y captura los datos. No incluye ANOVA, chi-cuadrado para tablas de contingencia ni prueba binomial exacta.
+
+## Nuevos módulos
+
+- Varianza de una población (χ²) y razón de dos varianzas (F), con alternativas unilaterales o bilateral e intervalos bilaterales.
+- Medias independientes: Welch o t con varianza combinada; medias relacionadas: t de diferencias, pares alineados.
+- Potencia de una prueba Z de una media con σ conocida: α, β, efecto con signo y búsqueda del menor n que alcanza el objetivo.
+- Selección MAS, sistemática con intervalo N/n y estratificada con asignación proporcional o Neyman (costos iguales). Base de hasta 100 000 registros, semilla reproducible y descarga CSV.
+- Menú lateral adaptable a móviles, resultados separados del formulario y gráficos de las distribuciones.
+
+La base de muestreo se pega sin encabezados, un registro por línea: `id;estrato;valor`. Los valores son necesarios para Neyman. No se admiten identificadores repetidos. La semilla usa Mulberry32; MAS usa Fisher–Yates parcial. El código de selección se encuentra en `avanzado.js`. El sistemático depende del orden de entrada: revisar periodicidades. La asignación por restos mayores respeta capacidades; advierte si hay estratos sin selección. No calcula estimadores ponderados ni errores estándar del diseño complejo.
 
 ## Uso y despliegue
 
@@ -28,10 +38,17 @@ La planificación de tamaño muestral no incorpora efecto de diseño, no respues
 
 ## Validación
 
-Ejecuta `node tests/estadistica.test.js`. Incluye casos de cuantiles Z/t, colas, media, Wilson, tamaño de muestra, resumen e invalidaciones. Se contrastaron 28 cuantiles t con SciPy (grados de libertad de 1 a 999999; error absoluto máximo menor que 1e-6).
+Ejecuta `node tests/estadistica.test.js` y `node tests/avanzado.test.js`. Los nuevos contrastes χ², F y Welch se contrastaron con SciPy; se verifican pares, potencia y selección sin reemplazo/reproducible. Incluye casos de cuantiles Z/t, colas, media, Wilson, tamaño de muestra, resumen e invalidaciones. Se contrastaron 28 cuantiles t con SciPy (grados de libertad de 1 a 999999; error absoluto máximo menor que 1e-6).
 
 ## Referencias
 
 - https://www.itl.nist.gov/div898/handbook/prc/section2/prc22.htm
 - https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm
 - https://online.stat.psu.edu/stat506/Lesson02
+
+- https://www.itl.nist.gov/div898/handbook/eda/section3/eda359.htm
+- https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm
+- https://www.itl.nist.gov/div898/handbook/prc/section2/prc23.htm
+- https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm
+- https://online.stat.psu.edu/stat506/Lesson06
+- https://online.stat.psu.edu/stat506/Lesson08
