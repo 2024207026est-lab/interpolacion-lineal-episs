@@ -52,3 +52,11 @@ Ejecuta `node tests/estadistica.test.js` y `node tests/avanzado.test.js`. Los nu
 - https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm
 - https://online.stat.psu.edu/stat506/Lesson06
 - https://online.stat.psu.edu/stat506/Lesson08
+
+## Interfaz institucional UNAJ
+
+Diseño académico con el logotipo proporcionado, azul oscuro y naranja; inicio con las ocho herramientas existentes, menú contraíble, enlaces directos por fragmento (por ejemplo `/#compare`) e información del proyecto. Créditos: Mamani Delgado Pedro y Jove Benites Danny, Escuela Profesional de Ingeniería de Software y Sistemas, Facultad de Ciencias de Ingenierías, Universidad Nacional de Juliaca.
+
+`unaj.css` y `unaj.js` contienen la presentación y navegación. `logo-unaj.svg` encapsula el PNG original sin modificar sus píxeles. Los núcleos `estadistica.js` y `avanzado.js` permanecen idénticos a la versión anterior; los cambios en los scripts de calculadoras se limitan a cadenas de presentación, colores y selector de navegación. No se agregaron métodos estadísticos.
+
+Verificación del rediseño: pruebas numéricas existentes, revisión de capturas de escritorio y móvil, navegación de inicio/información/calculadoras, menú contraíble, enlaces directos, ejemplos de los 13 métodos, CSV, errores de entrada e interpolación/extrapolación; sin errores JavaScript ni desbordamiento horizontal a 390 px.
